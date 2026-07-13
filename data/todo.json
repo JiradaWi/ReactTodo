@@ -1,0 +1,14 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "text": "buy milk",
+            "completed": false
+        },
+        {
+            "id": 2,
+            "text": "do laundry",
+            "completed": false
+        }
+    ]
+}
