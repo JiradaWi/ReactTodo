@@ -2,10 +2,11 @@ import { useEffect, useRef } from "react";
 
 interface ModalProps {
     modalOpen: boolean;
-    setModalOpen: (open: boolean) => void;
+    setModalOpen: (open: boolean) => boolean | void;
+    children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ modalOpen, setModalOpen }) => {
+const Modal: React.FC<ModalProps> = ({ modalOpen, setModalOpen, children }) => {
     const dialogRef = useRef<HTMLDialogElement>(null);
 
     useEffect(() => {
@@ -23,8 +24,10 @@ const Modal: React.FC<ModalProps> = ({ modalOpen, setModalOpen }) => {
             onClose={() => setModalOpen(false)}
         >
             <div className="modal-box">
-                <h3 className="font-bold text-lg">Hello!</h3>
-                <p className="py-4">Press ESC key or click the button below to close</p>
+                {/* <h3 className="font-bold text-lg">Hello!</h3> */}
+                
+                <p className="py-4">{children}</p>
+
                 <div className="modal-action">
                     <button className="btn" onClick={() => setModalOpen(false)}>
                         Close
